@@ -3,28 +3,168 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Contact Us | AENS Project</title>
-  <link rel="stylesheet" href="../css/style.css" />
+  <title>Contact | AENS Project & Engineering Services Ltd</title>
+
+  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="../css/index.css">
 </head>
-<body>
-  <header></header>
+<body class="antialiased text-slate-900 bg-white">
 
-  <section class="pt-32 pb-16 px-6 md:px-20 bg-gray-50 text-center">
-    <h1 class="text-4xl font-bold text-gray-800 mb-6">Contact Us</h1>
-    <p class="max-w-2xl mx-auto text-gray-600 mb-10">
-      Have a project in mind or want to learn more about our services? Reach out to us today.
-    </p>
+<!-- Header -->
+<header class="bg-white shadow-md sticky top-0 z-50">
+  <div class="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
+    <a href="../index.html" class="flex items-center gap-3">
+      <img src="../assets/images/logo.png" alt="AENS" class="h-10 w-auto object-contain">
+      <div class="leading-tight">
+        <div class="text-lg font-bold text-[var(--brand-red)]">AENS Project & Engineering</div>
+        <div class="text-xs text-slate-500">Innovative, Dependable Engineering Solutions</div>
+      </div>
+    </a>
 
-    <form class="max-w-xl mx-auto bg-white p-8 rounded-lg shadow-md space-y-4">
-      <input type="text" placeholder="Full Name" class="w-full border border-gray-300 rounded-lg px-4 py-2">
-      <input type="email" placeholder="Email Address" class="w-full border border-gray-300 rounded-lg px-4 py-2">
-      <textarea placeholder="Your Message" rows="5" class="w-full border border-gray-300 rounded-lg px-4 py-2"></textarea>
-      <button type="submit" class="w-full bg-yellow-500 hover:bg-yellow-600 text-black font-semibold py-3 rounded-lg">Send Message</button>
-    </form>
+    <nav class="hidden lg:flex items-center gap-6 text-sm font-medium">
+      <a href="../index.html" class="hover:text-[var(--brand-red)]">Home</a>
+      <a href="about.html" class="hover:text-[var(--brand-red)]">About</a>
+      <a href="services.html" class="hover:text-[var(--brand-red)]">Services</a>
+      <a href="projects.html" class="hover:text-[var(--brand-red)]">Projects</a>
+      <a href="contact.html" class="text-[var(--brand-red)] font-semibold">Contact</a>
+    </nav>
+
+    <div class="lg:hidden">
+      <button id="mobileBtn" class="p-2 rounded-md border">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8h16M4 16h16" />
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <div id="mobileMenu" class="hidden lg:hidden bg-white border-t">
+    <a href="../index.html" class="block px-6 py-3 border-b">Home</a>
+    <a href="about.html" class="block px-6 py-3 border-b">About</a>
+    <a href="services.html" class="block px-6 py-3 border-b">Services</a>
+    <a href="projects.html" class="block px-6 py-3 border-b">Projects</a>
+    <a href="contact.html" class="block px-6 py-3">Contact</a>
+  </div>
+</header>
+
+<main class="pt-8">
+
+  <!-- Hero -->
+  <section class="py-16 bg-[url('../assets/images/contact-hero.jpg')] bg-cover bg-center">
+    <div class="max-w-6xl mx-auto px-6 text-white">
+      <div class="bg-black/50 p-8 rounded-lg">
+        <h1 class="text-3xl md:text-4xl font-bold text-[var(--brand-red)]">Contact Us</h1>
+        <p class="mt-3 text-sm md:text-lg text-slate-100 max-w-3xl">
+          Get in touch with our engineering team. We’re ready to discuss your next project or partnership opportunity.
+        </p>
+      </div>
+    </div>
   </section>
 
-  <footer></footer>
-  <script src="../js/include.js"></script>
+  <!-- Contact Form & Info -->
+  <section class="py-20 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-10">
+
+      <!-- Contact Form -->
+      <div class="bg-white p-8 rounded-lg shadow-md">
+        <h2 class="text-2xl font-bold text-[var(--brand-red)] mb-6">Send Us a Message</h2>
+
+        <form class="space-y-5">
+          <div>
+            <label class="block text-sm font-medium mb-1">Full Name</label>
+            <input type="text" class="w-full border rounded-lg px-4 py-2 focus:ring-2 focus:ring-[var(--brand-red)] outline-none" placeholder="Your Name" required>
+          </div>
+
+          <div>
+            <label class="block text-sm font-medium mb-1">Email</label>
+            <input type="email" class="w-full border rounded-lg px-4 py-2 focus:ring-2 focus:ring-[var(--brand-red)] outline-none" placeholder="you@example.com" required>
+          </div>
+
+          <div>
+            <label class="block text-sm font-medium mb-1">Phone</label>
+            <input type="tel" class="w-full border rounded-lg px-4 py-2 focus:ring-2 focus:ring-[var(--brand-red)] outline-none" placeholder="+234..." required>
+          </div>
+
+          <div>
+            <label class="block text-sm font-medium mb-1">Message</label>
+            <textarea rows="5" class="w-full border rounded-lg px-4 py-2 focus:ring-2 focus:ring-[var(--brand-red)] outline-none" placeholder="Write your message here..." required></textarea>
+          </div>
+
+          <button type="submit" class="bg-[var(--brand-red)] text-white font-semibold px-6 py-3 rounded-lg hover:bg-red-700 transition">
+            Send Message
+          </button>
+        </form>
+      </div>
+
+      <!-- Contact Information -->
+      <div class="flex flex-col justify-center">
+        <h2 class="text-2xl font-bold text-[var(--brand-red)] mb-6">Contact Information</h2>
+
+        <div class="space-y-4 text-slate-700">
+          <p><i class="bi bi-geo-alt-fill text-[var(--brand-red)] mr-2"></i> Plot 2 Ohaeto Street, D-line, Port Harcourt, Rivers State, Nigeria</p>
+          <p><i class="bi bi-telephone-fill text-[var(--brand-red)] mr-2"></i> +234-703-253-8441</p>
+          <p><i class="bi bi-envelope-fill text-[var(--brand-red)] mr-2"></i> info@aensengineering.com</p>
+          <p><i class="bi bi-clock-fill text-[var(--brand-red)] mr-2"></i> Monday – Friday: 8:00 AM – 6:00 PM</p>
+        </div>
+
+        <div class="mt-8">
+          <h3 class="font-semibold mb-2">Follow Us</h3>
+          <div class="flex gap-4 text-[var(--brand-red)] text-xl">
+            <a href="#"><i class="bi bi-facebook hover:text-red-700"></i></a>
+            <a href="#"><i class="bi bi-linkedin hover:text-red-700"></i></a>
+            <a href="#"><i class="bi bi-instagram hover:text-red-700"></i></a>
+            <a href="#"><i class="bi bi-twitter-x hover:text-red-700"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Map -->
+  <section class="h-[400px]">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.701924173744!2d6.994!3d4.809!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1069cddc9!2sPort%20Harcourt!5e0!3m2!1sen!2sng!4v1720000000000"
+      width="100%" height="100%" style="border:0;" allowfullscreen loading="lazy">
+    </iframe>
+  </section>
+
+</main>
+
+<!-- Footer -->
+<footer class="bg-slate-900 text-slate-200 mt-12">
+  <div class="max-w-7xl mx-auto px-6 py-10 grid md:grid-cols-3 gap-6">
+    <div>
+      <h4 class="text-white font-bold mb-3">AENS Projects & Engineering Services Ltd</h4>
+      <p class="text-sm">Plot 2 Ohaeto str. D-line • Port-Harcourt, Rivers state, Nigeria.</p>
+    </div>
+    <div>
+      <h4 class="text-white font-bold mb-3">Quick Links</h4>
+      <ul class="space-y-2 text-sm">
+        <li><a href="about.html" class="hover:text-white">About</a></li>
+        <li><a href="services.html" class="hover:text-white">Services</a></li>
+        <li><a href="projects.html" class="hover:text-white">Projects</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="text-white font-bold mb-3">Contact Info</h4>
+      <p>📞 +234-703-253-8441</p>
+      <p>✉️ info@aensengineering.com</p>
+    </div>
+  </div>
+  <div class="border-t border-slate-800 py-4 text-center text-sm">© 2025 Aens Projects & Engineering Services Ltd. All rights reserved.</div>
+</footer>
+
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  const mobileBtn = document.getElementById('mobileBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  mobileBtn && mobileBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+</script>
 </body>
 </html>
