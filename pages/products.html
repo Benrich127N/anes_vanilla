@@ -9,16 +9,21 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- AOS for scroll animations -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
-  <!-- Custom CSS -->
   <link rel="stylesheet" href="../css/index.css">
 </head>
-<body class="antialiased text-slate-900 bg-white">
 
-<!-- Header / Shared nav -->
-<!-- Reusable Navbar Component -->
-<!-- File: components/navbar.html -->
+<body class="antialiased text-slate-900">
 
+<!-- ✅ Loader -->
+<div id="loader">
+  <div class="spinner"></div>
+  <h2 class="text-white text-xl font-semibold mt-6">Loading AENS Engineering...</h2>
+</div>
+
+<!-- Header / Navbar -->
 <header class="sticky top-0 z-40 bg-white shadow">
   <div class="max-w-7xl mx-auto flex items-center justify-between px-4 py-4">
     <!-- Logo and Company Name -->
@@ -36,11 +41,11 @@
 
     <!-- Desktop Navigation -->
     <nav class="hidden lg:flex items-center gap-6 text-sm">
-      <a href="../index.html" class="hover:text-brand-red nav-link">Home</a>
-      <a href="../pages/about.html" class="hover:text-brand-red nav-link">About</a>
-      <a href="../pages/services.html" class="hover:text-brand-red nav-link">Services</a>
-      <a href="../pages/products.html" class="hover:text-brand-red nav-link">Products</a>
-      <a href="../pages/contact.html" class="hover:text-brand-red nav-link">Contact</a>
+      <a href="../index.html" class="hover:text-brand-red">Home</a>
+      <a href="about.html" class="hover:text-brand-red">About</a>
+      <a href="services.html" class="hover:text-brand-red">Services</a>
+      <a href="products.html" class="hover:text-brand-red text-brand-red font-semibold">Products</a>
+      <a href="contact.html" class="hover:text-brand-red">Contact</a>
     </nav>
 
     <!-- Mobile Menu Button -->
@@ -53,91 +58,94 @@
     </div>
   </div>
 
-  <!-- Mobile Menu (Hidden by default) -->
+  <!-- Mobile Menu -->
   <div id="mobileMenu" class="hidden lg:hidden bg-white border-t">
     <nav class="flex flex-col p-4 space-y-2">
       <a href="../index.html" class="hover:text-brand-red py-2 px-4 hover:bg-gray-100 rounded">Home</a>
-      <a href="../pages/about.html" class="hover:text-brand-red py-2 px-4 hover:bg-gray-100 rounded">About</a>
-      <a href="../pages/services.html" class="hover:text-brand-red py-2 px-4 hover:bg-gray-100 rounded">Services</a>
-      <a href="../pages/products.html" class="hover:text-brand-red py-2 px-4 hover:bg-gray-100 rounded">Products</a>
-      <a href="../pages/contact.html" class="hover:text-brand-red py-2 px-4 hover:bg-gray-100 rounded">Contact</a>
+      <a href="about.html" class="hover:text-brand-red py-2 px-4 hover:bg-gray-100 rounded">About</a>
+      <a href="services.html" class="hover:text-brand-red py-2 px-4 hover:bg-gray-100 rounded">Services</a>
+      <a href="products.html" class="hover:text-brand-red py-2 px-4 hover:bg-gray-100 rounded text-brand-red font-semibold">Products</a>
+      <a href="contact.html" class="hover:text-brand-red py-2 px-4 hover:bg-gray-100 rounded">Contact</a>
     </nav>
   </div>
 </header>
 
-<!-- Mobile Menu Toggle Script -->
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const mobileBtn = document.getElementById('mobileBtn');
-    const mobileMenu = document.getElementById('mobileMenu');
+<main>
+
+  <!-- ✅ Hero Section -->
+  <section class="relative py-20 bg-cover bg-center text-white"
+    style="background-image: url('../assets/Images/view-heavy-machinery-used-construction-industry.jpg');">
+    <div class="absolute inset-0 bg-black/60"></div>
+    <div class="absolute inset-0 border-4 border-dashed border-white/70 rounded-lg pointer-events-none"></div>
     
-    if (mobileBtn && mobileMenu) {
-      mobileBtn.addEventListener('click', function() {
-        mobileMenu.classList.toggle('hidden');
-      });
-    }
-
-    // Optional: Highlight active page
-    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-    const navLinks = document.querySelectorAll('.nav-link');
-    navLinks.forEach(link => {
-      if (link.getAttribute('href').includes(currentPage)) {
-        link.classList.add('text-brand-red', 'font-semibold');
-      }
-    });
-  });
-</script>
-<main class="pt-8">
-
-  <!-- Hero -->
-  <section class="py-16 bg-[url('../assets/images/products-hero.jpg')] bg-cover bg-center">
-    <div class="max-w-6xl mx-auto px-6 text-white">
-      <div class="bg-black/50 p-8 rounded-lg">
-        <h1 class="text-3xl md:text-4xl font-bold text-[var(--brand-red)]">Our Products</h1>
-        <p class="mt-3 text-sm md:text-lg text-slate-100 max-w-3xl">
-          AENS supplies a broad range of high-quality engineering equipment, tools, and industrial materials 
-          designed to meet the rigorous demands of construction, manufacturing, and oil & gas industries.
-        </p>
-      </div>
+    <div class="relative max-w-7xl mx-auto px-6 text-center" data-aos="fade-up">
+      <h1 class="text-4xl md:text-5xl font-extrabold leading-tight">Our Products</h1>
+      <div class="w-32 h-1 bg-[var(--brand-red)] rounded-full mx-auto my-6"></div>
+      <p class="mt-4 text-lg text-slate-200 max-w-3xl mx-auto">
+        AENS supplies a broad range of high-quality engineering equipment, tools, and industrial materials 
+        designed to meet the rigorous demands of construction, manufacturing, and oil & gas industries.
+      </p>
     </div>
   </section>
 
-  <!-- Product Categories -->
-  <section class="py-20 bg-gray-50">
-    <div class="max-w-7xl mx-auto px-6">
-      <h2 class="text-3xl font-bold text-center text-[var(--brand-red)] mb-10">Product Categories</h2>
+  <!-- ✅ Product Categories Section -->
+  <section class="relative py-20 bg-cover bg-center bg-no-repeat"
+    style="background-image: url('../assets/Images/blue-curve-abstract-background-with-design-space.jpg');">
+    <div class="absolute inset-0 bg-white/70"></div>
+    
+    <div class="relative max-w-7xl mx-auto px-6">
+      <h2 class="text-4xl font-bold text-center mb-8" data-aos="fade-up">
+        <span class="text-[var(--brand-blue)]">Product</span> 
+        <span class="text-[var(--brand-red)]">Categories</span>
+      </h2>
+      <div class="w-32 h-1 bg-[var(--brand-red)] rounded-full mx-auto mb-12"></div>
 
       <div class="grid md:grid-cols-3 gap-8">
-        <!-- Product 1 -->
-        <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition">
-          <img src="../assets/images/electrical-tools.jpg" alt="Electrical Equipment" class="w-full h-56 object-cover">
+        <!-- Electrical Equipment -->
+        <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-2xl transition card-hover" data-aos="zoom-in" data-aos-delay="100">
+          <div class="relative h-56 bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center">
+            <i class="bi bi-lightning-charge-fill text-white text-6xl"></i>
+          </div>
           <div class="p-6">
-            <h3 class="text-xl font-bold mb-2 text-[var(--brand-red)]">Electrical Equipment</h3>
-            <p class="text-sm text-gray-700">
+            <div class="h-12 w-12 rounded-full bg-[var(--brand-blue)]/20 flex items-center justify-center mb-4">
+              <i class="bi bi-plug-fill text-[var(--brand-blue)] text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-3 text-[var(--brand-red)]">Electrical Equipment</h3>
+            <p class="text-sm text-gray-700 leading-relaxed">
               We offer top-grade cables, transformers, circuit breakers, and electrical panels 
               tailored for industrial and commercial applications.
             </p>
           </div>
         </div>
 
-        <!-- Product 2 -->
-        <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition">
-          <img src="../assets/images/mechanical-tools.jpg" alt="Mechanical Tools" class="w-full h-56 object-cover">
+        <!-- Mechanical Tools -->
+        <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-2xl transition card-hover" data-aos="zoom-in" data-aos-delay="200">
+          <div class="relative h-56 bg-gradient-to-br from-red-500 to-red-700 flex items-center justify-center">
+            <i class="bi bi-gear-fill text-white text-6xl"></i>
+          </div>
           <div class="p-6">
-            <h3 class="text-xl font-bold mb-2 text-[var(--brand-red)]">Mechanical Tools</h3>
-            <p class="text-sm text-gray-700">
+            <div class="h-12 w-12 rounded-full bg-[var(--brand-red)]/20 flex items-center justify-center mb-4">
+              <i class="bi bi-tools text-[var(--brand-red)] text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-3 text-[var(--brand-red)]">Mechanical Tools</h3>
+            <p class="text-sm text-gray-700 leading-relaxed">
               Precision-engineered hand tools, bearings, valves, pumps, and welding accessories 
               built to endure challenging operational environments.
             </p>
           </div>
         </div>
 
-        <!-- Product 3 -->
-        <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition">
-          <img src="../assets/images/safety-equipment.jpg" alt="Safety Equipment" class="w-full h-56 object-cover">
+        <!-- Safety Equipment -->
+        <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-2xl transition card-hover" data-aos="zoom-in" data-aos-delay="300">
+          <div class="relative h-56 bg-gradient-to-br from-yellow-500 to-orange-600 flex items-center justify-center">
+            <i class="bi bi-shield-fill-check text-white text-6xl"></i>
+          </div>
           <div class="p-6">
-            <h3 class="text-xl font-bold mb-2 text-[var(--brand-red)]">Safety Equipment</h3>
-            <p class="text-sm text-gray-700">
+            <div class="h-12 w-12 rounded-full bg-yellow-500/20 flex items-center justify-center mb-4">
+              <i class="bi bi-shield-check text-yellow-600 text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-3 text-[var(--brand-red)]">Safety Equipment</h3>
+            <p class="text-sm text-gray-700 leading-relaxed">
               From PPE kits and helmets to fire extinguishers and emergency kits, 
               AENS ensures workplace safety and compliance.
             </p>
@@ -147,52 +155,194 @@
     </div>
   </section>
 
-  <!-- Featured Products -->
-  <section class="py-20 bg-white">
-    <div class="max-w-7xl mx-auto px-6">
-      <h2 class="text-3xl font-bold text-center text-[var(--brand-red)] mb-10">Featured Products</h2>
+  <!-- ✅ Trusted Partners Section -->
+  <section class="relative py-16 bg-cover bg-center text-white"
+    style="background-image: url('../assets/Images/hardhat-blueprints-wooden-table.jpg');">
+    
+    <div class="absolute inset-0 bg-black/70"></div>
+    <div class="absolute inset-0 border-4 border-dashed border-white/50 rounded-lg pointer-events-none"></div>
 
-      <div class="grid md:grid-cols-4 gap-8">
-        <div class="text-center">
-          <img src="../assets/images/product1.jpg" class="h-40 mx-auto rounded-lg shadow">
-          <h4 class="mt-4 font-semibold">Industrial Pumps</h4>
+    <div class="relative max-w-7xl mx-auto px-6">
+      <h2 class="text-3xl font-bold text-center mb-8" data-aos="fade-up">Our Trusted Partners</h2>
+      <p class="text-center text-slate-200 mb-12 max-w-2xl mx-auto" data-aos="fade-up">
+        We partner with industry-leading manufacturers to deliver certified, high-quality products.
+      </p>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- Schneider Electric -->
+        <div class="bg-white rounded-lg overflow-hidden shadow-lg card-hover" data-aos="zoom-in">
+          <img src="../assets/Images/schneider-electric-logo-png_seeklogo-123510.png" class="w-full h-52 object-contain p-6 bg-white" alt="Schneider Electric" />
+          <div class="p-6 bg-white">
+            <h3 class="font-semibold text-lg mb-2 text-slate-800">Schneider Electric</h3>
+            <p class="text-sm text-slate-600">Leading provider of electrical distribution, industrial automation and building control solutions.</p>
+          </div>
         </div>
-        <div class="text-center">
-          <img src="../assets/images/product2.jpg" class="h-40 mx-auto rounded-lg shadow">
-          <h4 class="mt-4 font-semibold">Cables & Conductors</h4>
+
+        <!-- ABB -->
+        <div class="bg-white rounded-lg overflow-hidden shadow-lg card-hover" data-aos="zoom-in" data-aos-delay="100">
+          <img src="../assets/Images/fc-abb-logo-png_seeklogo-208510.png" class="w-full h-52 object-contain p-6 bg-white" alt="ABB" />
+          <div class="p-6 bg-white">
+            <h3 class="font-semibold text-lg mb-2 text-slate-800">Asea Brown Boveri</h3>
+            <p class="text-sm text-slate-600">ABB's products and solutions cater to various industries, including industrial, commercial and residential applications.</p>
+          </div>
         </div>
-        <div class="text-center">
-          <img src="../assets/images/product3.jpg" class="h-40 mx-auto rounded-lg shadow">
-          <h4 class="mt-4 font-semibold">Safety Helmets</h4>
-        </div>
-        <div class="text-center">
-          <img src="../assets/images/product4.jpg" class="h-40 mx-auto rounded-lg shadow">
-          <h4 class="mt-4 font-semibold">Valves & Bearings</h4>
+
+        <!-- Siemens -->
+        <div class="bg-white rounded-lg overflow-hidden shadow-lg card-hover" data-aos="zoom-in" data-aos-delay="200">
+          <img src="../assets/Images/1258999-3840x2160-desktop-4k-siemens-background.jpg" class="w-full h-52 object-contain p-6 bg-white" alt="Siemens" />
+          <div class="p-6 bg-white">
+            <h3 class="font-semibold text-lg mb-2 text-slate-800">Siemens</h3>
+            <p class="text-sm text-slate-600">Products designed to enhance efficiency, productivity and reliability in manufacturing, energy and healthcare.</p>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- CTA -->
-  <section class="py-16 bg-slate-900 text-white text-center">
-    <h2 class="text-3xl font-bold text-[var(--brand-red)] mb-4">Need Custom Equipment Supply?</h2>
-    <p class="max-w-3xl mx-auto text-slate-300 mb-6">
-      We source and deliver specialized engineering tools, industrial machinery, and safety devices 
-      based on your project’s unique technical requirements.
-    </p>
-    <a href="contact.html" class="bg-[var(--brand-red)] hover:bg-red-700 px-8 py-3 rounded-lg font-semibold transition">
-      Request a Quote
-    </a>
+  <!-- ✅ Featured Products Section -->
+  <section class="relative py-20 bg-cover bg-center bg-no-repeat"
+    style="background-image: url('../assets/Images/blue-curve-abstract-background-with-design-space.jpg');">
+    <div class="absolute inset-0 bg-white/70"></div>
+    
+    <div class="relative max-w-7xl mx-auto px-6">
+      <h2 class="text-3xl font-bold text-center mb-8" data-aos="fade-up">Featured Products</h2>
+      <p class="text-center text-slate-600 mb-12 max-w-2xl mx-auto" data-aos="fade-up">
+        Explore our range of high-quality industrial products and equipment.
+      </p>
+
+      <div class="grid md:grid-cols-4 gap-8">
+        <!-- Product 1 -->
+        <div class="bg-white rounded-lg overflow-hidden shadow-lg text-center card-hover" data-aos="fade-up" data-aos-delay="100">
+          <div class="h-48 bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center">
+            <i class="bi bi-droplet-fill text-white text-5xl"></i>
+          </div>
+          <div class="p-4">
+            <h4 class="font-semibold text-slate-800 mb-2">Industrial Pumps</h4>
+            <p class="text-xs text-slate-600">High-performance pumps for various industrial applications</p>
+          </div>
+        </div>
+
+        <!-- Product 2 -->
+        <div class="bg-white rounded-lg overflow-hidden shadow-lg text-center card-hover" data-aos="fade-up" data-aos-delay="150">
+          <div class="h-48 bg-gradient-to-br from-red-400 to-red-600 flex items-center justify-center">
+            <i class="bi bi-plug text-white text-5xl"></i>
+          </div>
+          <div class="p-4">
+            <h4 class="font-semibold text-slate-800 mb-2">Cables & Conductors</h4>
+            <p class="text-xs text-slate-600">Premium quality electrical cables and conductors</p>
+          </div>
+        </div>
+
+        <!-- Product 3 -->
+        <div class="bg-white rounded-lg overflow-hidden shadow-lg text-center card-hover" data-aos="fade-up" data-aos-delay="200">
+          <div class="h-48 bg-gradient-to-br from-yellow-400 to-orange-500 flex items-center justify-center">
+            <i class="bi bi-shield-fill text-white text-5xl"></i>
+          </div>
+          <div class="p-4">
+            <h4 class="font-semibold text-slate-800 mb-2">Safety Helmets</h4>
+            <p class="text-xs text-slate-600">Industry-standard safety helmets and PPE</p>
+          </div>
+        </div>
+
+        <!-- Product 4 -->
+        <div class="bg-white rounded-lg overflow-hidden shadow-lg text-center card-hover" data-aos="fade-up" data-aos-delay="250">
+          <div class="h-48 bg-gradient-to-br from-green-400 to-green-600 flex items-center justify-center">
+            <i class="bi bi-gear-wide-connected text-white text-5xl"></i>
+          </div>
+          <div class="p-4">
+            <h4 class="font-semibold text-slate-800 mb-2">Valves & Bearings</h4>
+            <p class="text-xs text-slate-600">Precision valves and bearings for machinery</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ✅ Product Benefits Section -->
+  <section class="relative py-16 bg-cover bg-center text-white"
+    style="background-image: url('../assets/Images/smart-factory-mechanic-using-tablet-analyze-iot-sensors-data.jpg');">
+    
+    <div class="absolute inset-0 bg-black/70"></div>
+
+    <div class="relative max-w-7xl mx-auto px-6">
+      <div class="grid md:grid-cols-2 gap-8 items-center">
+        <!-- Text -->
+        <div data-aos="fade-right" class="space-y-5">
+          <h2 class="text-3xl font-extrabold flex items-center gap-3">
+            <span class="text-[var(--brand-blue)] rotating-gear"><i class="bi bi-gear-fill"></i></span>
+            Why Choose Our Products?
+          </h2>
+
+          <div class="w-24 h-1 bg-[var(--brand-red)] rounded-full mb-4"></div>
+
+          <div class="space-y-4">
+            <div class="flex items-start gap-3 bg-white/10 backdrop-blur-sm p-4 rounded">
+              <i class="bi bi-patch-check-fill text-[var(--brand-blue)] text-2xl"></i>
+              <div>
+                <h4 class="font-semibold text-white">Certified Quality</h4>
+                <p class="text-sm text-slate-200">All products meet international quality standards and certifications.</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3 bg-white/10 backdrop-blur-sm p-4 rounded">
+              <i class="bi bi-truck text-[var(--brand-red)] text-2xl"></i>
+              <div>
+                <h4 class="font-semibold text-white">Reliable Delivery</h4>
+                <p class="text-sm text-slate-200">Fast and efficient delivery to your project site.</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3 bg-white/10 backdrop-blur-sm p-4 rounded">
+              <i class="bi bi-headset text-yellow-500 text-2xl"></i>
+              <div>
+                <h4 class="font-semibold text-white">Technical Support</h4>
+                <p class="text-sm text-slate-200">Expert guidance and after-sales support for all products.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Image -->
+        <div class="relative w-full flex justify-center" data-aos="fade-left">
+          <div class="absolute -top-5 -right-5 w-4/5 h-4/5 bg-[var(--brand-red)] rounded-lg opacity-80"></div>
+          <img 
+            src="../assets/Images/IMG-20250903-WA0035.jpg" 
+            alt="AENS Products" 
+            class="relative rounded-lg shadow-2xl w-full max-w-md object-cover border-4 border-white"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ✅ CTA Section -->
+  <section class="relative py-16 bg-slate-900 text-white">
+    <div class="max-w-7xl mx-auto text-center px-6" data-aos="zoom-in">
+      <h2 class="text-3xl md:text-4xl font-bold text-[var(--brand-red)] mb-4">Need Custom Equipment Supply?</h2>
+      <p class="max-w-3xl mx-auto text-slate-300 mb-8 text-lg">
+        We source and deliver specialized engineering tools, industrial machinery, and safety devices 
+        based on your project's unique technical requirements.
+      </p>
+      <div class="flex justify-center gap-4">
+        <a href="contact.html" class="inline-flex items-center gap-3 bg-[var(--brand-red)] hover:bg-red-700 text-white px-8 py-3 rounded shadow transition">
+          Request a Quote
+        </a>
+        <a href="services.html" class="inline-flex items-center gap-3 bg-white/10 text-white px-8 py-3 rounded hover:bg-white/20 transition">
+          View Services
+        </a>
+      </div>
+    </div>
   </section>
 
 </main>
 
-<!-- Footer -->
-<footer class="bg-slate-900 text-slate-200 mt-12">
+<!-- ✅ Footer -->
+<footer class="bg-slate-900 text-slate-200">
   <div class="max-w-7xl mx-auto px-6 py-10 grid md:grid-cols-3 gap-6">
     <div>
-      <h4 class="text-white font-bold mb-3">AENS Projects & Engineering Services Ltd</h4>
+      <h4 class="text-white font-bold mb-3">Aens Projects & Engineering Services Ltd</h4>
       <p class="text-sm">Plot 2 Ohaeto str. D-line • Port-Harcourt, Rivers state, Nigeria.</p>
+      <p class="mt-2">+234-703-253-8441<br/>info@aensengineering.com<br/>aensengineering@gmail.com</p>
     </div>
     <div>
       <h4 class="text-white font-bold mb-3">Quick Links</h4>
@@ -200,23 +350,32 @@
         <li><a href="about.html" class="hover:text-white">About</a></li>
         <li><a href="services.html" class="hover:text-white">Services</a></li>
         <li><a href="products.html" class="hover:text-white">Products</a></li>
+        <li><a href="contact.html" class="hover:text-white">Contact</a></li>
       </ul>
     </div>
     <div>
-      <h4 class="text-white font-bold mb-3">Contact Info</h4>
-      <p>📞 +234-703-253-8441</p>
-      <p>✉️ info@aensengineering.com</p>
+      <h4 class="text-white font-bold mb-3">Subscribe</h4>
+      <form class="flex gap-2">
+        <input type="email" placeholder="your email" class="p-2 rounded text-black" />
+        <button class="bg-[var(--brand-red)] px-3 rounded text-white">Subscribe</button>
+      </form>
     </div>
   </div>
-  <div class="border-t border-slate-800 py-4 text-center text-sm">© 2025 Aens Projects & Engineering Services Ltd. All rights reserved.</div>
+  <div class="border-t border-slate-800 py-4 text-center text-sm">© 2025 Aens Projects & Engineering services Ltd. All rights reserved.</div>
 </footer>
 
-<!-- Scripts -->
+<!-- ✅ Scripts -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="../js/index.js"></script>
 <script>
+  // Mobile menu toggle
   const mobileBtn = document.getElementById('mobileBtn');
   const mobileMenu = document.getElementById('mobileMenu');
-  mobileBtn && mobileBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+  if (mobileBtn && mobileMenu) {
+    mobileBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+  }
 </script>
 </body>
 </html>

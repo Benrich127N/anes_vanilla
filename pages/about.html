@@ -7,18 +7,23 @@
 
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Bootstrap (for components if needed) -->
+  <!-- Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- AOS for scroll animations -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
-  <!-- Your custom styles -->
   <link rel="stylesheet" href="../css/index.css">
 </head>
-<body class="antialiased text-slate-900 bg-white">
 
-<!-- Header / Shared nav -->
-<!-- Reusable Navbar Component -->
-<!-- File: components/navbar.html -->
+<body class="antialiased text-slate-900">
 
+<!-- ✅ Loader -->
+<div id="loader">
+  <div class="spinner"></div>
+  <h2 class="text-white text-xl font-semibold mt-6">Loading AENS Engineering...</h2>
+</div>
+
+<!-- Header / Navbar -->
 <header class="sticky top-0 z-40 bg-white shadow">
   <div class="max-w-7xl mx-auto flex items-center justify-between px-4 py-4">
     <!-- Logo and Company Name -->
@@ -36,11 +41,11 @@
 
     <!-- Desktop Navigation -->
     <nav class="hidden lg:flex items-center gap-6 text-sm">
-      <a href="../index.html" class="hover:text-brand-red nav-link">Home</a>
-      <a href="../pages/about.html" class="hover:text-brand-red nav-link">About</a>
-      <a href="../pages/services.html" class="hover:text-brand-red nav-link">Services</a>
-      <a href="../pages/products.html" class="hover:text-brand-red nav-link">Products</a>
-      <a href="../pages/contact.html" class="hover:text-brand-red nav-link">Contact</a>
+      <a href="../index.html" class="hover:text-brand-red">Home</a>
+      <a href="about.html" class="hover:text-brand-red text-brand-red font-semibold">About</a>
+      <a href="services.html" class="hover:text-brand-red">Services</a>
+      <a href="products.html" class="hover:text-brand-red">Products</a>
+      <a href="contact.html" class="hover:text-brand-red">Contact</a>
     </nav>
 
     <!-- Mobile Menu Button -->
@@ -53,175 +58,224 @@
     </div>
   </div>
 
-  <!-- Mobile Menu (Hidden by default) -->
+  <!-- Mobile Menu -->
   <div id="mobileMenu" class="hidden lg:hidden bg-white border-t">
     <nav class="flex flex-col p-4 space-y-2">
       <a href="../index.html" class="hover:text-brand-red py-2 px-4 hover:bg-gray-100 rounded">Home</a>
-      <a href="../pages/about.html" class="hover:text-brand-red py-2 px-4 hover:bg-gray-100 rounded">About</a>
-      <a href="../pages/services.html" class="hover:text-brand-red py-2 px-4 hover:bg-gray-100 rounded">Services</a>
-      <a href="../pages/products.html" class="hover:text-brand-red py-2 px-4 hover:bg-gray-100 rounded">Products</a>
-      <a href="../pages/contact.html" class="hover:text-brand-red py-2 px-4 hover:bg-gray-100 rounded">Contact</a>
+      <a href="about.html" class="hover:text-brand-red py-2 px-4 hover:bg-gray-100 rounded text-brand-red font-semibold">About</a>
+      <a href="services.html" class="hover:text-brand-red py-2 px-4 hover:bg-gray-100 rounded">Services</a>
+      <a href="products.html" class="hover:text-brand-red py-2 px-4 hover:bg-gray-100 rounded">Products</a>
+      <a href="contact.html" class="hover:text-brand-red py-2 px-4 hover:bg-gray-100 rounded">Contact</a>
     </nav>
   </div>
 </header>
 
-<!-- Mobile Menu Toggle Script -->
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const mobileBtn = document.getElementById('mobileBtn');
-    const mobileMenu = document.getElementById('mobileMenu');
+<main>
+
+  <!-- ✅ Hero Section with Background Image -->
+  <section class="relative py-20 bg-cover bg-center text-white"
+    style="background-image: url('../assets/Images/view-heavy-machinery-used-construction-industry.jpg');">
+    <div class="absolute inset-0 bg-black/60"></div>
+    <div class="absolute inset-0 border-4 border-dashed border-white/70 rounded-lg pointer-events-none"></div>
     
-    if (mobileBtn && mobileMenu) {
-      mobileBtn.addEventListener('click', function() {
-        mobileMenu.classList.toggle('hidden');
-      });
-    }
-
-    // Optional: Highlight active page
-    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-    const navLinks = document.querySelectorAll('.nav-link');
-    navLinks.forEach(link => {
-      if (link.getAttribute('href').includes(currentPage)) {
-        link.classList.add('text-brand-red', 'font-semibold');
-      }
-    });
-  });
-</script>
-
-<main class="pt-8">
-
-  <!-- Hero / Intro -->
-  <section class="py-16 bg-[url('../assets/images/about-hero.jpg')] bg-cover bg-center">
-    <div class="max-w-6xl mx-auto px-6 text-white">
-      <div class="bg-black/50 p-8 rounded-lg">
-        <h1 class="text-3xl md:text-4xl font-bold text-[var(--brand-red)]">About AENS Project & Engineering</h1>
-        <p class="mt-3 text-sm md:text-lg text-slate-100 max-w-3xl">
-          AENS is a multidisciplinary engineering firm providing end-to-end solutions across energy, industrial and infrastructure sectors. We combine local knowledge with international best practice to deliver safe, cost-effective projects on schedule.
-        </p>
-      </div>
+    <div class="relative max-w-7xl mx-auto px-6 text-center" data-aos="fade-up">
+      <h1 class="text-4xl md:text-5xl font-extrabold leading-tight">About AENS Project & Engineering</h1>
+      <div class="w-32 h-1 bg-[var(--brand-red)] rounded-full mx-auto my-6"></div>
+      <p class="mt-4 text-lg text-slate-200 max-w-3xl mx-auto">
+        AENS is a multidisciplinary engineering firm providing end-to-end solutions across energy, industrial and infrastructure sectors. We combine local knowledge with international best practice to deliver safe, cost-effective projects on schedule.
+      </p>
     </div>
   </section>
 
-  <!-- Company summary and mission/vision -->
-  <section class="py-16 bg-gray-50">
-    <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-8 items-center">
-      <div>
-        <h2 class="text-2xl font-bold text-[var(--brand-red)] mb-4">Who we are</h2>
-        <p class="text-slate-700 leading-relaxed">
-          Founded to deliver practical engineering solutions, AENS brings together experienced engineers, project managers and technicians to serve clients in power, oil and gas, manufacturing and infrastructure.
+  <!-- ✅ Who We Are Section with Background -->
+  <section class="relative py-16 bg-cover bg-center bg-no-repeat"
+    style="background-image: url('../assets/Images/blue-curve-abstract-background-with-design-space.jpg');">
+    
+    <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-8 items-center bg-white/70 rounded-lg p-8 shadow-lg backdrop-blur-sm">
+      <!-- Text -->
+      <div data-aos="fade-right" class="space-y-5">
+        <h2 class="text-4xl font-extrabold text-slate-900 flex items-center gap-3">
+          <span class="text-[var(--brand-blue)] rotating-gear"><i class="bi bi-gear-fill"></i></span>
+          Who We Are
+        </h2>
+
+        <div class="w-24 h-1 bg-[var(--brand-red)] rounded-full mb-4"></div>
+
+        <p class="text-lg text-slate-700 leading-relaxed">
+          Founded to deliver practical engineering solutions, <span class="font-semibold text-[var(--brand-red)]">AENS</span> brings together experienced engineers, project managers and technicians to serve clients in power, oil and gas, manufacturing and infrastructure.
+        </p>
+        
+        <p class="text-lg text-slate-700 leading-relaxed">
           Our approach focuses on safety, quality and sustainability. We work at every stage of a project from Feasibility and Detailed Design to Procurement, Construction and Commissioning.
         </p>
 
-        <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <div class="p-4 bg-white rounded shadow">
-            <h4 class="font-semibold text-sm text-[var(--brand-red)]">Mission</h4>
-            <p class="text-sm text-slate-600 mt-2">Deliver high-quality engineering solutions with safety and sustainability at the core.</p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
+          <div class="flex flex-col items-start gap-2 bg-white p-4 rounded shadow">
+            <i class="bi bi-bullseye text-[var(--brand-red)] text-3xl"></i>
+            <h4 class="font-semibold text-slate-800">Mission</h4>
+            <p class="text-sm text-slate-600">Deliver high-quality engineering solutions with safety and sustainability at the core.</p>
           </div>
-          <div class="p-4 bg-white rounded shadow">
-            <h4 class="font-semibold text-sm text-[var(--brand-red)]">Vision</h4>
-            <p class="text-sm text-slate-600 mt-2">To be a trusted engineering partner across Africa, recognized for excellence and integrity.</p>
+          <div class="flex flex-col items-start gap-2 bg-white p-4 rounded shadow">
+            <i class="bi bi-eye-fill text-[var(--brand-blue)] text-3xl"></i>
+            <h4 class="font-semibold text-slate-800">Vision</h4>
+            <p class="text-sm text-slate-600">To be a trusted engineering partner across Africa, recognized for excellence and integrity.</p>
           </div>
         </div>
       </div>
 
-      <div>
-        <img src="../assets/images/team.jpg" alt="AENS Team" class="rounded-lg shadow-lg object-cover w-full h-80">
+      <!-- Image with Framed Accent -->
+      <div class="relative w-full flex justify-center" data-aos="fade-left">
+        <div class="absolute -top-5 -left-5 w-4/5 h-4/5 bg-[var(--brand-red)] rounded-lg opacity-80"></div>
+        <img 
+          src="../assets/Images/IMG-20250903-WA0035.jpg" 
+          alt="AENS Team" 
+          class="relative rounded-lg shadow-2xl w-full max-w-md object-cover border-4 border-white"
+        />
       </div>
     </div>
   </section>
 
-  <!-- Core values and capabilities -->
-  <section class="py-12">
-    <div class="max-w-7xl mx-auto px-6">
-      <h3 class="text-xl font-bold mb-6">Core Capabilities</h3>
+  <!-- ✅ Core Capabilities Section -->
+  <section class="relative py-16 bg-cover bg-center text-white"
+    style="background-image: url('../assets/Images/hardhat-blueprints-wooden-table.jpg');">
+    
+    <div class="absolute inset-0 bg-black/60"></div>
+    <div class="absolute inset-0 border-4 border-dashed border-white/50 rounded-lg pointer-events-none"></div>
+
+    <div class="relative max-w-7xl mx-auto px-6">
+      <h3 class="text-3xl font-bold text-center mb-8" data-aos="fade-up">Core Capabilities</h3>
+      <p class="text-center text-slate-200 mb-12 max-w-2xl mx-auto" data-aos="fade-up">
+        We offer comprehensive engineering services across multiple disciplines to ensure project success.
+      </p>
 
       <div class="grid md:grid-cols-3 gap-6">
-        <div class="bg-white rounded-lg p-6 shadow">
-          <h4 class="font-semibold text-[var(--brand-red)]">Project Management</h4>
-          <p class="mt-2 text-sm text-slate-600">Planning, scheduling, cost control and delivery assurance for projects of varied scale.</p>
+        <div class="bg-white/10 backdrop-blur-sm p-6 rounded-lg text-center card-hover" data-aos="fade-up" data-aos-delay="100">
+          <div class="h-16 w-16 rounded-full bg-[var(--brand-blue)]/20 flex items-center justify-center text-[var(--brand-white)] font-bold mb-4 mx-auto">
+            <i class="bi bi-briefcase-fill text-3xl"></i>
+          </div>
+          <h4 class="font-semibold text-lg mb-2 text-white">Project Management</h4>
+          <p class="text-sm text-slate-300">Planning, scheduling, cost control and delivery assurance for projects of varied scale.</p>
         </div>
 
-        <div class="bg-white rounded-lg p-6 shadow">
-          <h4 class="font-semibold text-[var(--brand-red)]">Engineering & Design</h4>
-          <p class="mt-2 text-sm text-slate-600">Multidisciplinary engineering across electrical, mechanical and civil disciplines.</p>
+        <div class="bg-white/10 backdrop-blur-sm p-6 rounded-lg text-center card-hover" data-aos="fade-up" data-aos-delay="200">
+          <div class="h-16 w-16 rounded-full bg-[var(--brand-red)]/20 flex items-center justify-center text-[var(--brand-white)] font-bold mb-4 mx-auto">
+            <i class="bi bi-rulers text-3xl"></i>
+          </div>
+          <h4 class="font-semibold text-lg mb-2 text-white">Engineering & Design</h4>
+          <p class="text-sm text-slate-300">Multidisciplinary engineering across electrical, mechanical and civil disciplines.</p>
         </div>
 
-        <div class="bg-white rounded-lg p-6 shadow">
-          <h4 class="font-semibold text-[var(--brand-red)]">Commissioning & Testing</h4>
-          <p class="mt-2 text-sm text-slate-600">Site testing, commissioning support and performance verification to ensure systems operate to spec.</p>
+        <div class="bg-white/10 backdrop-blur-sm p-6 rounded-lg text-center card-hover" data-aos="fade-up" data-aos-delay="300">
+          <div class="h-16 w-16 rounded-full bg-[var(--brand-blue)]/20 flex items-center justify-center text-[var(--brand-white)] font-bold mb-4 mx-auto">
+            <i class="bi bi-check-circle-fill text-3xl"></i>
+          </div>
+          <h4 class="font-semibold text-lg mb-2 text-white">Commissioning & Testing</h4>
+          <p class="text-sm text-slate-300">Site testing, commissioning support and performance verification to ensure systems operate to spec.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Leadership -->
-  <section class="py-16 bg-gray-50">
-    <div class="max-w-7xl mx-auto px-6">
-      <h3 class="text-2xl font-bold mb-6">Leadership</h3>
+  <!-- ✅ Leadership Section -->
+  <section class="relative py-16 bg-cover bg-center bg-no-repeat"
+    style="background-image: url('../assets/Images/blue-curve-abstract-background-with-design-space.jpg');">
+    <div class="absolute inset-0 bg-white/70"></div>
+    
+    <div class="relative max-w-7xl mx-auto px-6">
+      <h3 class="text-3xl font-bold text-center mb-8" data-aos="fade-up">Leadership Team</h3>
+      <p class="text-center text-slate-600 mb-12 max-w-2xl mx-auto" data-aos="fade-up">
+        Meet the experienced professionals leading AENS to excellence in engineering solutions.
+      </p>
+
       <div class="grid md:grid-cols-3 gap-6">
-        <div class="bg-white rounded-lg p-4 shadow">
-          <img src="../assets/images/leader1.jpg" alt="Leader 1" class="w-full h-40 object-cover rounded">
-          <h4 class="mt-3 font-semibold">Engr. John Doe</h4>
-          <p class="text-sm text-slate-600">Managing Director</p>
+        <div class="bg-white rounded-lg overflow-hidden shadow-lg card-hover" data-aos="zoom-in">
+          <img src="../assets/Images/IMG-20250903-WA0018.jpg" alt="Engr. John Doe" class="w-full h-64 object-cover">
+          <div class="p-4">
+            <h4 class="font-semibold text-lg text-slate-800">Engr. John Doe</h4>
+            <p class="text-sm text-[var(--brand-red)] font-medium">Managing Director</p>
+            <p class="text-sm text-slate-600 mt-2">Leading strategic vision and operational excellence across all projects.</p>
+          </div>
         </div>
 
-        <div class="bg-white rounded-lg p-4 shadow">
-          <img src="../assets/images/leader2.jpg" alt="Leader 2" class="w-full h-40 object-cover rounded">
-          <h4 class="mt-3 font-semibold">Engr. Jane Smith</h4>
-          <p class="text-sm text-slate-600">Head of Projects</p>
+        <div class="bg-white rounded-lg overflow-hidden shadow-lg card-hover" data-aos="zoom-in" data-aos-delay="100">
+          <img src="../assets/Images/male-worker-wearing-lab-coat-while-using-laptop.jpg" alt="Engr. Jane Smith" class="w-full h-64 object-cover">
+          <div class="p-4">
+            <h4 class="font-semibold text-lg text-slate-800">Engr. Jane Smith</h4>
+            <p class="text-sm text-[var(--brand-red)] font-medium">Head of Projects</p>
+            <p class="text-sm text-slate-600 mt-2">Overseeing project delivery and ensuring quality standards across all operations.</p>
+          </div>
         </div>
 
-        <div class="bg-white rounded-lg p-4 shadow">
-          <img src="../assets/images/leader3.jpg" alt="Leader 3" class="w-full h-40 object-cover rounded">
-          <h4 class="mt-3 font-semibold">Engr. Musa Yinusa</h4>
-          <p class="text-sm text-slate-600">Operations Manager</p>
+        <div class="bg-white rounded-lg overflow-hidden shadow-lg card-hover" data-aos="zoom-in" data-aos-delay="200">
+          <img src="../assets/Images/smart-factory-mechanic-using-tablet-analyze-iot-sensors-data.jpg" alt="Engr. Musa Yinusa" class="w-full h-64 object-cover">
+          <div class="p-4">
+            <h4 class="font-semibold text-lg text-slate-800">Engr. Musa Yinusa</h4>
+            <p class="text-sm text-[var(--brand-red)] font-medium">Operations Manager</p>
+            <p class="text-sm text-slate-600 mt-2">Managing day-to-day operations and ensuring efficient project execution.</p>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- CTA -->
-  <section class="py-12">
-    <div class="max-w-7xl mx-auto px-6 bg-[var(--brand-red)] text-white rounded-lg p-8 text-center">
-      <h3 class="text-2xl font-bold">Talk to our team</h3>
-      <p class="mt-2">For project enquiries or technical questions contact our office for a consultation.</p>
-      <a href="contact.html" class="mt-4 inline-block bg-white text-[var(--brand-red)] px-6 py-3 rounded">Contact Us</a>
+  <!-- ✅ CTA Section -->
+  <section class="relative py-16 bg-cover bg-center text-white"
+    style="background-image: url('../assets/Images/view-heavy-machinery-used-construction-industry.jpg');">
+    
+    <div class="absolute inset-0 bg-black/70"></div>
+    
+    <div class="relative max-w-5xl mx-auto px-6 text-center" data-aos="zoom-in">
+      <h3 class="text-3xl md:text-4xl font-bold">Ready to Start Your Project?</h3>
+      <p class="mt-4 text-lg text-slate-200">For project enquiries or technical questions, contact our office for a consultation.</p>
+      <div class="mt-8 flex justify-center gap-4">
+        <a href="contact.html" class="inline-flex items-center gap-3 bg-[var(--brand-blue)] hover:bg-[var(--brand-red)] text-white px-6 py-3 rounded shadow transition">Contact Us</a>
+        <a href="services.html" class="inline-flex items-center gap-3 bg-white/10 text-white px-6 py-3 rounded hover:bg-white/20 transition">View Services</a>
+      </div>
     </div>
   </section>
 
 </main>
 
-<!-- Footer -->
-<footer class="bg-slate-900 text-slate-200 mt-12">
+<!-- ✅ Footer -->
+<footer class="bg-slate-900 text-slate-200">
   <div class="max-w-7xl mx-auto px-6 py-10 grid md:grid-cols-3 gap-6">
     <div>
-      <h4 class="text-white font-bold mb-3">AENS Projects & Engineering Services Ltd</h4>
+      <h4 class="text-white font-bold mb-3">Aens Projects & Engineering Services Ltd</h4>
       <p class="text-sm">Plot 2 Ohaeto str. D-line • Port-Harcourt, Rivers state, Nigeria.</p>
+      <p class="mt-2">+234-703-253-8441<br/>info@aensengineering.com<br/>aensengineering@gmail.com</p>
     </div>
     <div>
       <h4 class="text-white font-bold mb-3">Quick Links</h4>
       <ul class="space-y-2 text-sm">
         <li><a href="about.html" class="hover:text-white">About</a></li>
         <li><a href="services.html" class="hover:text-white">Services</a></li>
-<a href="pages/products.html" class="hover:text-red-600">Products</a>
+        <li><a href="products.html" class="hover:text-white">Products</a></li>
+        <li><a href="contact.html" class="hover:text-white">Contact</a></li>
       </ul>
     </div>
     <div>
-      <h4 class="text-white font-bold mb-3">Contact Info</h4>
-      <p>📞 +234-703-253-8441</p>
-      <p>✉️ info@aensengineering.com</p>
+      <h4 class="text-white font-bold mb-3">Subscribe</h4>
+      <form class="flex gap-2">
+        <input type="email" placeholder="your email" class="p-2 rounded text-black" />
+        <button class="bg-[var(--brand-red)] px-3 rounded text-white">Subscribe</button>
+      </form>
     </div>
   </div>
-  <div class="border-t border-slate-800 py-4 text-center text-sm">© 2025 Aens Projects & Engineering Services Ltd. All rights reserved.</div>
+  <div class="border-t border-slate-800 py-4 text-center text-sm">© 2025 Aens Projects & Engineering services Ltd. All rights reserved.</div>
 </footer>
 
-<!-- Scripts -->
+<!-- ✅ Scripts -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="../js/index.js"></script>
 <script>
   // Mobile menu toggle
   const mobileBtn = document.getElementById('mobileBtn');
   const mobileMenu = document.getElementById('mobileMenu');
-  mobileBtn && mobileBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+  if (mobileBtn && mobileMenu) {
+    mobileBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+  }
 </script>
 </body>
 </html>
