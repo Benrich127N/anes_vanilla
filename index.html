@@ -27,12 +27,16 @@
 
 
 <!-- ✅ Header -->
+<!-- Reusable Navbar Component -->
+<!-- File: components/navbar.html -->
+
 <header class="sticky top-0 z-40 bg-white shadow">
   <div class="max-w-7xl mx-auto flex items-center justify-between px-4 py-4">
+    <!-- Logo and Company Name -->
     <div class="flex items-center gap-4">
-      <a href="#" class="flex items-center gap-3">
+      <a href="../index.html" class="flex items-center gap-3">
         <div class="w-20 h-20 rounded-md flex items-center justify-center bg-white">
-          <img src="./assets/Images/Aens' Logo - 2025_prev_ui.png" alt="Aens Engineering" class="h-18 w-auto object-contain">
+          <img src="../assets/Images/Aens' Logo - 2025_prev_ui.png" alt="Aens Engineering" class="h-18 w-auto object-contain">
         </div>
         <div>
           <div class="text-2xl font-bold">Aens Project & Engineering Services Ltd</div>
@@ -41,15 +45,16 @@
       </a>
     </div>
 
+    <!-- Desktop Navigation -->
     <nav class="hidden lg:flex items-center gap-6 text-sm">
-  <a href="index.html" class="hover:text-brand-red">Home</a>
-  <a href="pages/about.html" class="hover:text-brand-red">About</a>
-  <a href="pages/services.html" class="hover:text-brand-red">Services</a>
-  <a href="pages/products.html" class="hover:text-brand-red">Products</a>
-  <a href="pages/contact.html" class="hover:text-brand-red">Contact</a>
-</nav>
+      <a href="../index.html" class="hover:text-brand-red nav-link">Home</a>
+      <a href="../pages/about.html" class="hover:text-brand-red nav-link">About</a>
+      <a href="../pages/services.html" class="hover:text-brand-red nav-link">Services</a>
+      <a href="../pages/products.html" class="hover:text-brand-red nav-link">Products</a>
+      <a href="../pages/contact.html" class="hover:text-brand-red nav-link">Contact</a>
+    </nav>
 
-
+    <!-- Mobile Menu Button -->
     <div class="lg:hidden">
       <button id="mobileBtn" class="p-2 rounded-md border">
         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -58,8 +63,41 @@
       </button>
     </div>
   </div>
+
+  <!-- Mobile Menu (Hidden by default) -->
+  <div id="mobileMenu" class="hidden lg:hidden bg-white border-t">
+    <nav class="flex flex-col p-4 space-y-2">
+      <a href="../index.html" class="hover:text-brand-red py-2 px-4 hover:bg-gray-100 rounded">Home</a>
+      <a href="../pages/about.html" class="hover:text-brand-red py-2 px-4 hover:bg-gray-100 rounded">About</a>
+      <a href="../pages/services.html" class="hover:text-brand-red py-2 px-4 hover:bg-gray-100 rounded">Services</a>
+      <a href="../pages/products.html" class="hover:text-brand-red py-2 px-4 hover:bg-gray-100 rounded">Products</a>
+      <a href="../pages/contact.html" class="hover:text-brand-red py-2 px-4 hover:bg-gray-100 rounded">Contact</a>
+    </nav>
+  </div>
 </header>
 
+<!-- Mobile Menu Toggle Script -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const mobileBtn = document.getElementById('mobileBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    
+    if (mobileBtn && mobileMenu) {
+      mobileBtn.addEventListener('click', function() {
+        mobileMenu.classList.toggle('hidden');
+      });
+    }
+
+    // Optional: Highlight active page
+    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    const navLinks = document.querySelectorAll('.nav-link');
+    navLinks.forEach(link => {
+      if (link.getAttribute('href').includes(currentPage)) {
+        link.classList.add('text-brand-red', 'font-semibold');
+      }
+    });
+  });
+</script>
 <!-- ✅ HERO Carousel (GSAP-enhanced with fade) -->
 <section id="home" class="relative">
   <div id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="7000">
