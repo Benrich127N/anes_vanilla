@@ -13,6 +13,13 @@
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
   <link rel="stylesheet" href="../css/index.css">
+  <style>
+  .active {
+    color: #dc2626; /* Tailwind red-600 or your brand red */
+    font-weight: 600;
+  }
+</style>
+
 </head>
 
 <body class="antialiased text-slate-900">
@@ -42,7 +49,7 @@
     <!-- Desktop Navigation -->
     <nav class="hidden lg:flex items-center gap-6 text-sm">
       <a href="../index.html" class="hover:text-brand-red">Home</a>
-      <a href="about.html" class="hover:text-brand-red text-brand-red font-semibold">About</a>
+      <a href="about.html" class="hover:text-brand-red text-brand-red font-semibold active">About</a>
       <a href="services.html" class="hover:text-brand-red">Services</a>
       <a href="products.html" class="hover:text-brand-red">Products</a>
       <a href="contact.html" class="hover:text-brand-red">Contact</a>
@@ -62,7 +69,7 @@
   <div id="mobileMenu" class="hidden lg:hidden bg-white border-t">
     <nav class="flex flex-col p-4 space-y-2">
       <a href="../index.html" class="hover:text-brand-red py-2 px-4 hover:bg-gray-100 rounded">Home</a>
-      <a href="about.html" class="hover:text-brand-red py-2 px-4 hover:bg-gray-100 rounded text-brand-red font-semibold">About</a>
+      <a href="about.html" class="hover:text-brand-red py-2 px-4 hover:bg-gray-100 rounded text-brand-red font-semibold active">About</a>
       <a href="services.html" class="hover:text-brand-red py-2 px-4 hover:bg-gray-100 rounded">Services</a>
       <a href="products.html" class="hover:text-brand-red py-2 px-4 hover:bg-gray-100 rounded">Products</a>
       <a href="contact.html" class="hover:text-brand-red py-2 px-4 hover:bg-gray-100 rounded">Contact</a>
