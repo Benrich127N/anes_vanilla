@@ -351,7 +351,7 @@
   <div class="relative max-w-7xl mx-auto px-6 text-center">
     <h2 class="text-3xl font-bold mb-6" data-aos="fade-up">Client Testimonials</h2>
 
-    <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="4000">
+    <div id="testimonialCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="4000">
       <div class="carousel-inner">
 
         <!-- Testimonial 1 -->
@@ -547,6 +547,38 @@
           y: 0,
           duration: 1,
           stagger: 0.2,
+          ease: 'power3.out'
+        }
+      );
+    });
+  });
+</script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const testimonialCarousel = document.getElementById('testimonialCarousel');
+    const testimonialSlides = testimonialCarousel.querySelectorAll('.carousel-item');
+
+    // Animate the first testimonial on load
+    gsap.from(testimonialSlides[0].querySelector('.p-6'), {
+      opacity: 0,
+      x: 100,      // start from right
+      duration: 0.8,
+      ease: 'power3.out'
+    });
+
+    // Animate each new testimonial when it becomes active
+    testimonialCarousel.addEventListener('slide.bs.carousel', (e) => {
+      const nextSlide = e.relatedTarget;
+      const card = nextSlide.querySelector('.p-6');
+
+      // Slide in from the right
+      gsap.fromTo(card,
+        { opacity: 0, x: 100 },
+        {
+          opacity: 1,
+          x: 0,
+          duration: 1,
           ease: 'power3.out'
         }
       );
